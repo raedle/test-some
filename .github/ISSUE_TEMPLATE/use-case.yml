@@ -30,5 +30,5 @@ body:
   - type: input
     id: source-code
     attributes:
-      label: Source Code
+      label: Source Code (optional)
       description: Link to source code (e.g., GitHub repo)
