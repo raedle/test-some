@@ -1,5 +1,5 @@
 name: Use Case
-description: Share your demos to be included on the <NAME> community page
+description: Share your demos to be included on the NAME community page
 labels: ["Use Case"]
 body:
   - type: markdown
