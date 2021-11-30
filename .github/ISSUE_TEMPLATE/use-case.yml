@@ -1,0 +1,34 @@
+name: Use Case
+description: Share your demos to be included on the <NAME> community page
+labels: ["Use Case"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing your demo!
+  - type: textarea
+    id: images
+    attributes:
+      label: Images
+      description: Links to images of your demo (e.g., screenshots from mobile devices)
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: Link to website
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Tell us more about the use case for this demo?
+    validations:
+      required: true
+  - type: input
+    id: source-code
+    attributes:
+      label: Source Code
+      description: Link to source code (e.g., GitHub repo)
