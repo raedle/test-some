@@ -24,9 +24,14 @@ body:
     id: website
     attributes:
       label: Website
-      description: Link to website
+      description: Link to a website that showcases this work
     validations:
       required: true
+  - type: textarea
+    id: credit
+    attributes:
+      label: Credit (optional)
+      description: How do you want this work to be credited (e.g., name, Twitter handle, GitHub username)?
   - type: input
     id: source-code
     attributes:
