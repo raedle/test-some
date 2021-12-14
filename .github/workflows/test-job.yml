@@ -14,9 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set env
-        run: echo "NIGHTLY_VERSION=$(echo `0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}`)" >> $GITHUB_ENV
+        run: echo "GITHUB_NIGHTLY_VERSION=$(echo `0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}`)" >> $GITHUB_ENV
       - name: Test
-        run: echo $GITHUB_SHA_SHORT
+        run: echo $GITHUB_NIGHTLY_VERSION
         
   test:
     runs-on: ubuntu-latest
@@ -27,5 +27,5 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - name: Update package.json version to ${NIGHTLY_VERSION}
-        run: echo $NIGHTLY_VERSION
+      - name: Update package.json version to $GITHUB_NIGHTLY_VERSION `${GITHUB_NIGHTLY_VERSION}` ${GITHUB_NIGHTLY_VERSION}
+        run: echo $GITHUB_NIGHTLY_VERSION
