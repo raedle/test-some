@@ -16,7 +16,7 @@ jobs:
       - name: Set env
         run: echo "GITHUB_NIGHTLY_VERSION=$(echo `0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}`)" >> $GITHUB_ENV
       - name: Test
-        run: echo $GITHUB_NIGHTLY_VERSION
+        run: echo "${{ env.GITHUB_NIGHTLY_VERSION }}"
         
   test:
     runs-on: ubuntu-latest
@@ -27,5 +27,5 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - name: Update package.json version to $GITHUB_NIGHTLY_VERSION `${GITHUB_NIGHTLY_VERSION}` ${GITHUB_NIGHTLY_VERSION}
-        run: echo $GITHUB_NIGHTLY_VERSION
+      - name: Update package.json version to "${{ env.GITHUB_NIGHTLY_VERSION }}"
+        run: echo "${{ env.GITHUB_NIGHTLY_VERSION }}"
