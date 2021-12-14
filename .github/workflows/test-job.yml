@@ -20,5 +20,5 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - name: Update package.json version to ${{ NIGHTLY_VERSION }}
+      - name: Update package.json version to ${NIGHTLY_VERSION}
         run: echo $NIGHTLY_VERSION
