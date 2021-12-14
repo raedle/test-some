@@ -1,0 +1,24 @@
+name: NPM Publish Nightly
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+
+env:
+  NIGHTLY_VERSION: "0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: Update package.json version to ${{ NIGHTLY_VERSION }}
+        run: echo $NIGHTLY_VERSION
