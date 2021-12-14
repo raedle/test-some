@@ -17,8 +17,6 @@ jobs:
         run: |
           export NIGHTLY_VERSION=$(echo "0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}")
           echo "::set-output name=nightly_version::${NIGHTLY_VERSION}"
-      - name: Test
-        run: echo "${{ NIGHTLY_VERSION }}"
     outputs:
       nightly_version: ${{ steps.calculate.outputs.nightly_version }}
         
