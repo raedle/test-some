@@ -8,12 +8,19 @@ on:
         required: true
         default: 'Mona the Octocat'
 
-env:
-  NIGHTLY_VERSION: $(echo "0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}")
-
 jobs:
+  nightly_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set env
+        run: echo "NIGHTLY_VERSION=$(echo `0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}`)" >> $GITHUB_ENV
+      - name: Test
+        run: echo $GITHUB_SHA_SHORT
+        
   test:
     runs-on: ubuntu-latest
+    needs: nightly_version
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
