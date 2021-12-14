@@ -9,7 +9,7 @@ on:
         default: 'Mona the Octocat'
 
 env:
-  NIGHTLY_VERSION: "0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}"
+  NIGHTLY_VERSION: $(echo "0.0.0-$(date +%m%d%Y-%H%M)-${GITHUB_SHA::9}")
 
 jobs:
   test:
