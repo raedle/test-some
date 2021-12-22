@@ -21,8 +21,8 @@ jobs:
     needs: version
     steps:
       - name: Update package.json version to "${{ needs.version.outputs.nightly_version }}"
-        if: github.event.release.prerelease
+        if: github.event.release.prerelease == true
         run: echo "${{ needs.version.outputs.nightly_version }}-rc.0"
       - name: Update package.json version to "${{ needs.version.outputs.nightly_version }}"
-        if: !github.event.release.prerelease
+        if: github.event.release.prerelease == false
         run: echo "${{ needs.version.outputs.nightly_version }}"
