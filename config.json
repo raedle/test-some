@@ -1,0 +1,7 @@
+{
+  "examples": [
+    "photo",
+    "anime-gan",
+    "mnist"
+  ]
+}
