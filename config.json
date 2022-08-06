@@ -1,6 +1,5 @@
 {
   "examples": [
-    "photo",
     "camera",
     "anime-gan",
     "mnist"
